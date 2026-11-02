@@ -44,24 +44,13 @@
     :focus-visible { outline: 3px solid #b1c69f; outline-offset: 4px; }
     
     .container { width: min(1200px, calc(100% - 48px)); margin-inline: auto; }
-    .section { padding: clamp(76px, 9vw, 112px) 0; }
     
     h1, h2, h3 { color: var(--primary); font-family: var(--font-heading); font-weight: 400; line-height: 1.18; }
     .eyebrow { display: inline-flex; align-items: center; gap: 12px; color: var(--accent); text-transform: uppercase; letter-spacing: .19em; font-size: .72rem; font-weight: 700; font-family: var(--font-body); margin-bottom: 17px; }
     .eyebrow::before { content: ''; width: 28px; height: 1px; background: currentColor; opacity: .8; }
 
-    /* Efeito de Fade-In otimizado e fluido com aceleração de hardware */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px) translateZ(0); /* translateZ ativa a aceleração da GPU */
-      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform; /* Informa a GPU para preparar esses elementos */
-    }
-    
-    .fade-in.appear {
-      opacity: 1;
-      transform: translateY(0) translateZ(0);
-    }
+    .fade-in { opacity: 0; transform: translateY(20px) translateZ(0); transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); will-change: opacity, transform; }
+    .fade-in.appear { opacity: 1; transform: translateY(0) translateZ(0); }
 
     /* Cabeçalho */
     .site-header { position: fixed; inset: 0 0 auto; z-index: 50; background: rgba(255, 255, 255, .94); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
@@ -70,196 +59,48 @@
     .brand-sub { margin-top: 6px; color: var(--text-muted); font: 600 .61rem var(--font-body); letter-spacing: .17em; text-transform: uppercase; }
     .nav-links { display: flex; align-items: center; gap: 24px; font-size: .85rem; font-weight: 600; }
     .nav-links a:hover { color: var(--accent); }
-    .btn { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 0 22px; border-radius: 4px; font-size: .78rem; font-weight: 700; letter-spacing: .055em; text-transform: uppercase; background: var(--accent); color: #fff; transition: background .2s; }
-    .btn:hover { background: var(--accent-hover); }
-
-    /* Cabeçalho da Seção */
+    
     .gallery-hero-header { padding-top: calc(var(--header-height) + 60px); text-align: center; margin-bottom: 50px; }
     .gallery-hero-header h1 { font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 12px; }
     .gallery-hero-header p { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto; }
 
-    /* Mural / Grid de Fotos */
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 24px;
-      margin-bottom: 80px;
-    }
+    /* Grade de Fotos */
+    .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-bottom: 80px; }
+    .photo-card { position: relative; background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; cursor: pointer; aspect-ratio: 4 / 3; }
+    .photo-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: rgba(85, 122, 70, 0.4); }
+    .photo-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(.2,.7,.2,1); }
+    .photo-card:hover img { transform: scale(1.05); }
+    .photo-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26, 34, 27, 0.85) 0%, rgba(26, 34, 27, 0.2) 50%, transparent 100%); opacity: 0; transition: opacity 0.3s ease; display: flex; align-items: flex-end; padding: 20px; color: #fff; }
+    .photo-card:hover .photo-overlay { opacity: 1; }
+    .photo-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 400; letter-spacing: 0.02em; }
 
-    .photo-card {
-      position: relative;
-      background: var(--bg-white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      cursor: pointer;
-      aspect-ratio: 4 / 3;
-    }
-
-    .photo-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-md);
-      border-color: rgba(85, 122, 70, 0.4);
-    }
-
-    .photo-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
-    }
-
-    .photo-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .photo-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(26, 34, 27, 0.85) 0%, rgba(26, 34, 27, 0.2) 50%, transparent 100%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      display: flex;
-      align-items: flex-end;
-      padding: 20px;
-      color: #fff;
-    }
-
-    .photo-card:hover .photo-overlay {
-      opacity: 1;
-    }
-
-    .photo-title {
-      font-family: var(--font-heading);
-      font-size: 1.15rem;
-      font-weight: 400;
-      letter-spacing: 0.02em;
-    }
-
-    /* Rodapé */
     .footer { padding: 55px 0 25px; color: rgba(255,255,255,.7); background: var(--primary); text-align: center; }
     .footer-brand { margin-bottom: 13px; color: #fff; font: 400 1.9rem var(--font-heading); }
     .footer-divider { width: 42px; height: 1px; margin: 0 auto 24px; background: #8ca17b; }
-    .footer-location { font-size: .92rem; }
     .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 48px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.12); font-size: .76rem; }
     .footer-bottom a { color: #c5d2ba; text-decoration: underline; }
 
-    /* Botão Flutuante do WhatsApp */
-    .whatsapp-float {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 50;
-      width: 64px;
-      height: 64px;
-      background-color: #25d366;
-      color: #ffffff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
-      transition: all 0.3s ease;
-      animation: floatBtn 3s ease-in-out infinite;
-    }
+    .whatsapp-float { position: fixed; right: 20px; bottom: 20px; z-index: 50; width: 64px; height: 64px; background-color: #25d366; color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); transition: all 0.3s ease; animation: floatBtn 3s ease-in-out infinite; }
     .whatsapp-float:hover { background-color: #20ba59; transform: scale(1.1); }
     .whatsapp-float svg { width: 36px; height: 36px; fill: currentColor; }
-    @keyframes floatBtn {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
+    @keyframes floatBtn { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
-    /* Lightbox estilo Visualizador de Fotos do PC */
-    .lightbox {
-      position: fixed;
-      z-index: 120;
-      inset: 0;
-      display: none;
-      place-items: center;
-      background: rgba(10, 14, 11, 0.95);
-    }
-    .lightbox.open {
-      display: grid;
-    }
-    .lightbox-content {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 100vw;
-      height: 100vh;
-      padding: 40px;
-    }
-    
-    .lightbox-image-wrap {
-      max-width: 90vw;
-      max-height: 82vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: auto; /* Permite rolar caso a imagem seja maior que a tela */
-      border-radius: 4px;
-    }
+    /* ====== LIGHTBOX (SEM SETAS, X LIMPO) ====== */
+    .lightbox { position: fixed; z-index: 120; inset: 0; display: none; place-items: center; background: rgba(10, 14, 11, 0.98); touch-action: pan-y; }
+    .lightbox.open { display: grid; }
+    .lightbox-content { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100vw; height: 100vh; padding: 40px; }
+    .lightbox-image-wrap { max-width: 100%; max-height: 82vh; display: flex; align-items: center; justify-content: center; }
+    .lightbox-image { width: auto; height: auto; max-width: 100%; max-height: 80vh; object-fit: contain; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); border-radius: 4px; }
+    .lightbox-caption { margin-top: 16px; color: rgba(255, 255, 255, 0.85); text-align: center; font-size: 0.95rem; letter-spacing: 0.03em; }
 
-    .lightbox-image {
-      width: auto;
-      height: auto;
-      max-width: 100%;
-      max-height: 80vh;
-      object-fit: contain;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-      border-radius: 4px;
-    }
-    
-    .lightbox-caption {
-      margin-top: 16px;
-      color: rgba(255, 255, 255, 0.85);
-      text-align: center;
-      font-size: 0.95rem;
-      letter-spacing: 0.03em;
-    }
-
-    .lightbox-close, .lightbox-nav {
-      position: absolute;
-      z-index: 10;
-      display: grid;
-      place-items: center;
-      width: 50px;
-      height: 50px;
-      color: #fff;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .lightbox-close:hover, .lightbox-nav:hover {
-      background: rgba(255, 255, 255, 0.25);
-      transform: scale(1.05);
-    }
-    
-    .lightbox-close {
-      top: 24px;
-      right: 28px;
-      font-size: 1.8rem;
-    }
-    .lightbox-nav {
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1.8rem;
-    }
-    .lightbox-prev { left: 28px; }
-    .lightbox-next { right: 28px; }
+    /* Botão X Limpo sem fundo redondo */
+    .lightbox-close { position: absolute; z-index: 10; top: 20px; right: 30px; font-size: 2.5rem; color: #fff; background: transparent; border: none; cursor: pointer; transition: transform 0.2s ease; }
+    .lightbox-close:hover { transform: scale(1.15); }
 
     @media (max-width: 760px) {
       .photo-grid { grid-template-columns: 1fr; gap: 16px; }
       .lightbox-content { padding: 15px; }
-      .lightbox-nav { width: 42px; height: 42px; top: auto; bottom: 16px; }
-      .lightbox-prev { left: 20px; }
-      .lightbox-next { right: 20px; }
-      .lightbox-close { top: 16px; right: 16px; width: 40px; height: 40px; font-size: 1.4rem; }
+      .lightbox-close { top: 15px; right: 15px; font-size: 2.2rem; }
     }
   </style>
 </head>
@@ -284,7 +125,6 @@
       <p>Explore cada detalhe da nossa estrutura e prepare-se para o seu próximo descanso em Santa Isabel.</p>
     </div>
 
-    <!-- Grade / Mural de Fotos com Fade-In individual por cartão -->
     <div class="photo-grid">
       <div class="photo-card fade-in" data-index="0">
         <img src="assets/foto-01.webp" alt="Área de Lazer e Piscina" loading="lazy">
@@ -361,20 +201,17 @@
     </div>
   </footer>
 
-  <!-- Botão Flutuante WhatsApp -->
   <a href="https://wa.me/5511956983277?text=Olá%2C%20vi%20a%20galeria%20de%20fotos%20e%20gostaria%20de%20consultar%20valores!" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Falar pelo WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
   </a>
 
-  <!-- Lightbox Modal -->
+  <!-- Lightbox LIMPO sem setas! Apenas Swipe -->
   <div class="lightbox" id="galleryLightbox" aria-hidden="true">
     <div class="lightbox-content">
       <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Fechar">&times;</button>
-      <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Anterior">‹</button>
       <div class="lightbox-image-wrap">
         <img class="lightbox-image" id="lightboxImage" src="" alt="">
       </div>
-      <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Próxima">›</button>
       <p class="lightbox-caption" id="lightboxCaption"></p>
     </div>
   </div>
@@ -383,7 +220,6 @@
     (() => {
       'use strict';
 
-      // Script do Observer para animar os elementos com fade-in conforme rola a tela
       const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -395,14 +231,11 @@
 
       document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-      // Lightbox da galeria
       const cards = Array.from(document.querySelectorAll('.photo-card'));
       const lightbox = document.getElementById('galleryLightbox');
       const lightboxImage = document.getElementById('lightboxImage');
       const lightboxCaption = document.getElementById('lightboxCaption');
       const closeBtn = document.getElementById('lightboxClose');
-      const prevBtn = document.getElementById('lightboxPrev');
-      const nextBtn = document.getElementById('lightboxNext');
       let currentIndex = 0;
 
       const showImage = (index) => {
@@ -427,11 +260,33 @@
         document.body.classList.remove('no-scroll');
       };
 
-      closeBtn.EventListener = closeLightbox; // Correção interna
       closeBtn.addEventListener('click', closeLightbox);
-      prevBtn.addEventListener('click', () => showImage(currentIndex - 1));
-      nextBtn.addEventListener('click', () => showImage(currentIndex + 1));
-      lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+      lightbox.addEventListener('click', (e) => { 
+        if (e.target === lightbox || e.target.classList.contains('lightbox-content') || e.target.classList.contains('lightbox-image-wrap')) {
+          closeLightbox(); 
+        }
+      });
+
+      // Suporte a Swipe para o arquivo da galeria
+      let touchStartX = 0;
+      let touchEndX = 0;
+      
+      lightbox.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      lightbox.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchEndX < touchStartX - 50) showImage(currentIndex + 1); // Passou dedo p/ esquerda
+        if (touchEndX > touchStartX + 50) showImage(currentIndex - 1); // Passou dedo p/ direita
+      }, { passive: true });
+
+      // Permite usar setinhas do teclado no PC
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+        if (event.key === 'ArrowRight' && lightbox.classList.contains('open')) showImage(currentIndex + 1);
+        if (event.key === 'ArrowLeft' && lightbox.classList.contains('open')) showImage(currentIndex - 1);
+      });
 
       document.getElementById('currentYear').textContent = new Date().getFullYear();
     })();
