@@ -22,41 +22,6 @@
 
   <script>document.documentElement.classList.replace('no-js', 'js');</script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LodgingBusiness",
-    "name": "Rancho Morro Grande",
-    "description": "Chácara para alugar em Santa Isabel - SP, com piscina, área gourmet, churrasqueira e acomodações para finais de semana.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Santa Isabel",
-      "addressRegion": "SP",
-      "addressCountry": "BR"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": -23.3250883,
-      "longitude": -46.1972617
-    },
-    "telephone": "+5511956983277",
-    "priceRange": "$$",
-    "subjectOf": {
-      "@type": "WebPage",
-      "creator": {
-        "@type": "Organization",
-        "name": "TrendLocal SEO",
-        "url": "https://trendlocalseo.com.br/"
-      }
-    },
-    "hasMap": "https://www.google.com/maps/search/?api=1&query=Rancho+Morro+Grande+Santa+Isabel+SP",
-    "potentialAction": {
-      "@type": "ReserveAction",
-      "target": "https://wa.me/5511956983277?text=Ol%C3%A1%21%20Encontrei%20o%20Rancho%20Morro%20Grande%20pelo%20site%20e%20gostaria%20de%20consultar%20valores%20e%20disponibilidade%20para%20loca%C3%A7%C3%A3o."
-    }
-  }
-  </script>
-
   <style>
     :root {
       --primary: #1a221b;
@@ -83,9 +48,11 @@
     body.no-scroll { overflow: hidden; }
     a { color: inherit; text-decoration: none; }
     button { font: inherit; cursor: pointer; border: 0; }
-    img { display: block; max-width: 100%; }
     button, a { -webkit-tap-highlight-color: transparent; }
     :focus-visible { outline: 3px solid #b1c69f; outline-offset: 4px; }
+    
+    img { display: block; max-width: 100%; }
+
     .container { width: min(1200px, calc(100% - 48px)); margin-inline: auto; }
     .section { padding: clamp(76px, 9vw, 112px) 0; }
     .section-header { max-width: 680px; margin: 0 auto 54px; text-align: center; }
@@ -129,24 +96,11 @@
     .menu-toggle { width: 46px; height: 46px; display: none; place-items: center; color: var(--primary); border: 1px solid var(--border); border-radius: 4px; background: #fff; }
     .menu-toggle svg { width: 23px; height: 23px; }
 
-    /* CORREÇÃO AQUI: min-height alterado para 100svh para ocupar 100% da altura da tela sem deixar faixas */
     .hero { position: relative; isolation: isolate; min-height: 100svh; display: flex; align-items: center; padding: calc(var(--header-height) + 40px) 0 60px; overflow: hidden; color: #fff; background: var(--primary); }
     .hero-bg { position: absolute; z-index: -2; inset: 0; overflow: hidden; }
-    .hero-bg img { 
-      width: 100%; 
-      height: 100%; 
-      object-fit: cover; 
-      object-position: center 52%; 
-      opacity: .88; 
-      animation: heroZoomPulse 18s ease-in-out infinite alternate; 
-    }
+    .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 52%; opacity: .88; animation: heroZoomPulse 18s ease-in-out infinite alternate; }
     .hero-overlay { position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgba(15, 24, 17, .91) 0%, rgba(15, 24, 17, .68) 43%, rgba(15, 24, 17, .12) 100%), linear-gradient(0deg, rgba(15, 24, 17, .20), transparent 45%); }
-    .hero-content { 
-      max-width: 680px; 
-      opacity: 0;
-      transform: translateY(20px);
-      animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
-    }
+    .hero-content { max-width: 680px; opacity: 0; transform: translateY(20px); animation: heroFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards; }
     .hero .eyebrow { color: #d7dfce; }
     .hero h1 { max-width: 680px; color: #fff; font-size: clamp(2.3rem, 5vw, 4.2rem); letter-spacing: -.02em; margin: 6px 0 16px; line-height: 1.15; }
     .hero h1 em { color: #d7c7a7; font-style: italic; }
@@ -155,14 +109,8 @@
     .hero-note { display: flex; align-items: center; gap: 10px; margin-top: 35px; color: rgba(255,255,255,.74); font-size: .74rem; letter-spacing: .07em; text-transform: uppercase; }
     .hero-note::before { content: ''; width: 34px; height: 1px; background: rgba(255,255,255,.62); }
 
-    @keyframes heroZoomPulse {
-      0% { transform: scale(1.0); }
-      50% { transform: scale(1.08); }
-      100% { transform: scale(1.0); }
-    }
-    @keyframes heroFadeIn {
-      to { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes heroZoomPulse { 0% { transform: scale(1.0); } 50% { transform: scale(1.08); } 100% { transform: scale(1.0); } }
+    @keyframes heroFadeIn { to { opacity: 1; transform: translateY(0); } }
 
     .about-grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(42px, 7vw, 90px); align-items: center; }
     .about-content h2 { max-width: 540px; font-size: clamp(2.1rem, 4vw, 3.15rem); margin-bottom: 24px; }
@@ -183,13 +131,45 @@
     .amenity-item h3 { margin-bottom: 9px; font-family: var(--font-body); font-size: 1rem; font-weight: 700; }
     .amenity-item p { color: var(--text-muted); font-size: .88rem; line-height: 1.65; }
 
-    .gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: minmax(170px, 1fr); gap: 17px; }
-    .gallery-item { position: relative; display: block; width: 100%; min-height: 210px; overflow: hidden; padding: 0; aspect-ratio: 1 / 1; background: #e0e0dc; border-radius: 3px; text-align: left; }
-    .gallery-item.large { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; min-height: 440px; }
-    .gallery-item img { width: 100%; height: 100%; min-height: inherit; position: absolute; inset: 0; object-fit: cover; transition: transform .65s cubic-bezier(.2,.7,.2,1), filter .4s ease; }
+    .gallery-grid { 
+      display: grid; 
+      grid-template-columns: repeat(3, minmax(0, 1fr)); 
+      gap: 17px; 
+    }
+    
+    .gallery-item { 
+      position: relative; 
+      display: block; 
+      width: 100%; 
+      height: 100%;
+      min-height: 210px; 
+      overflow: hidden; 
+      padding: 0; 
+      aspect-ratio: 4 / 3; 
+      background: #e0e0dc; 
+      border-radius: 3px; 
+      text-align: left; 
+    }
+
+    /* As imagens dentro do card da grade (para preencher o card uniformemente) */
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Garante que a foto preencha o bloco no grid */
+      transition: transform .65s cubic-bezier(.2,.7,.2,1);
+    }
     
     .gallery-item:hover img { transform: scale(1.045); }
-    .gallery-item:hover::after, .gallery-item:focus-visible::after { opacity: 1; transform: translateY(0); }
+
+    /* CLASSE EXCLUSIVA PARA A FOTO DO CAVALO NA GRADE */
+    .gallery-item img.ajuste-cavalo {
+      object-position: 50%; /* Força o alinhamento para baixo, mostrando as patas! */
+    }
+
+    .gallery-item.large { 
+      aspect-ratio: auto; 
+      min-height: 440px; 
+    }
 
     .tour-section { position: relative; isolation: isolate; overflow: hidden; color: #fff; background: var(--primary); text-align: center; }
     .tour-section::before { content: ''; position: absolute; z-index: -1; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(85,122,70,.22), transparent 56%); pointer-events: none; }
@@ -240,91 +220,35 @@
     .footer-bottom a { color: #c5d2ba; text-decoration: underline; text-decoration-color: rgba(197,210,186,.45); text-underline-offset: 3px; }
     .footer-bottom a:hover { color: #fff; }
 
-    .whatsapp-float {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 50;
-      width: 64px;
-      height: 64px;
-      background-color: #25d366;
-      color: #ffffff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
-      transition: all 0.3s ease;
-      animation: floatBtn 3s ease-in-out infinite;
-    }
+    .whatsapp-float { position: fixed; right: 20px; bottom: 20px; z-index: 50; width: 64px; height: 64px; background-color: #25d366; color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); transition: all 0.3s ease; animation: floatBtn 3s ease-in-out infinite; }
     .whatsapp-float:hover { background-color: #20ba59; transform: scale(1.1); }
     .whatsapp-float svg { width: 36px; height: 36px; fill: currentColor; }
-    @keyframes floatBtn {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
+    @keyframes floatBtn { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
-    .lightbox { position: fixed; z-index: 120; inset: 0; display: none; place-items: center; padding: 28px; background: rgba(5,8,6,.96); }
-    .lightbox.open { display: grid; }
-    .lightbox-content { position: relative; display: grid; grid-template-rows: minmax(0, 1fr) auto; width: min(1200px, 100%); height: min(84vh, 850px); }
-    .lightbox-image-wrap { display: grid; place-items: center; min-height: 0; }
-    .lightbox-image { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
-    .lightbox-caption { padding-top: 14px; color: rgba(255,255,255,.78); text-align: center; font-size: .84rem; }
-    .lightbox-close, .lightbox-nav { position: absolute; z-index: 2; display: grid; place-items: center; width: 46px; height: 46px; color: #fff; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.28); border-radius: 50%; transition: background .2s ease; }
+    /* ====== LIGHTBOX (TELA CHEIA SEM CORTES) ====== */
+    .lightbox { position: fixed; z-index: 120; inset: 0; display: none; background: rgba(5,8,6,.98); touch-action: pan-y; }
+    .lightbox.open { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .lightbox-content { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100vw; height: 100vh; padding: 20px; }
+    .lightbox-image-wrap { display: flex; align-items: center; justify-content: center; width: 100%; height: 85vh; /* Limita a altura para deixar espaço pra legenda */ }
+    
+    /* Regra que garante que a foto apareça inteira */
+    .lightbox-image { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; box-shadow: 0 5px 30px rgba(0,0,0,0.5); }
+    
+    .lightbox-caption { margin-top: 15px; color: rgba(255,255,255,.9); text-align: center; font-size: .9rem; }
+    
+    .lightbox-close, .lightbox-nav { position: absolute; z-index: 2; display: grid; place-items: center; width: 46px; height: 46px; color: #fff; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.28); border-radius: 50%; transition: background .2s ease; cursor: pointer; }
     .lightbox-close:hover, .lightbox-nav:hover { background: rgba(255,255,255,.22); }
-    .lightbox-close { top: -15px; right: 0; font-size: 1.65rem; }
+    .lightbox-close { top: 20px; right: 20px; font-size: 1.65rem; }
     .lightbox-nav { top: 50%; transform: translateY(-50%); font-size: 1.6rem; }
-    .lightbox-prev { left: -62px; }
-    .lightbox-next { right: -62px; }
+    .lightbox-prev { left: 30px; }
+    .lightbox-next { right: 30px; }
 
-    /* Modal Tour 360 - Tela Cheia Absoluta */
-    .modal { 
-      position: fixed; 
-      inset: 0; 
-      z-index: 130; 
-      background: rgba(0,0,0,0.95); 
-      display: none; 
-      place-items: center; 
-      padding: 0; 
-    }
+    /* Modal Tour 360 */
+    .modal { position: fixed; inset: 0; z-index: 130; background: rgba(0,0,0,0.95); display: none; place-items: center; padding: 0; }
     .modal.open { display: grid; }
-    .modal-content { 
-      width: 100vw;  
-      height: 100vh; 
-      background: #000; 
-      position: relative; 
-      border-radius: 0; 
-      overflow: hidden; 
-    }
-
-    /* Botão Sutil no Canto Inferior Esquerdo para Voltar ao Site */
-    .tour-back-btn {
-      position: absolute;
-      bottom: 24px;
-      left: 24px;
-      z-index: 9999;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(26, 34, 27, 0.75);
-      color: #fff;
-      padding: 9px 18px;
-      border-radius: 50px;
-      font-family: var(--font-body);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(6px);
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
-    }
-    .tour-back-btn:hover {
-      background: rgba(26, 34, 27, 0.95);
-      transform: translateY(-2px);
-      border-color: rgba(255, 255, 255, 0.35);
-    }
+    .modal-content { width: 100vw; height: 100vh; background: #000; position: relative; border-radius: 0; overflow: hidden; }
+    .tour-back-btn { position: absolute; bottom: 24px; left: 24px; z-index: 9999; display: inline-flex; align-items: center; gap: 8px; background: rgba(26, 34, 27, 0.75); color: #fff; padding: 9px 18px; border-radius: 50px; font-family: var(--font-body); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.03em; border: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(6px); cursor: pointer; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease; }
+    .tour-back-btn:hover { background: rgba(26, 34, 27, 0.95); transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.35); }
 
     @media (max-width: 980px) {
       .nav-links { gap: 16px; font-size: .8rem; }
@@ -334,6 +258,8 @@
       .location-grid { grid-template-columns: 1fr; }
       .map-container { min-height: 390px; }
       .booking-inner { align-items: flex-start; flex-direction: column; }
+      .lightbox-prev { left: 10px; }
+      .lightbox-next { right: 10px; }
     }
 
     @media (max-width: 760px) {
@@ -350,7 +276,6 @@
       .nav-links a:not(.btn) { padding: 13px 4px; border-bottom: 1px solid var(--border); }
       .nav-links .btn { margin-top: 15px; width: 100%; }
 
-      /* CORREÇÃO AQUI: min-height alterado para 100svh no mobile também */
       .hero { min-height: 100svh; padding: calc(var(--header-height) + 40px) 0 60px; align-items: flex-end; }
       .hero-bg img { object-position: 75% center; opacity: .79; }
       .hero-overlay { background: linear-gradient(180deg, rgba(15,24,17,.12) 0%, rgba(15,24,17,.42) 34%, rgba(15,24,17,.91) 100%); }
@@ -375,10 +300,8 @@
       .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: auto; gap: 10px; }
       .gallery-item { min-height: 0; aspect-ratio: 1 / 1; }
       .gallery-item.large { grid-column: 1 / -1; grid-row: auto; aspect-ratio: 16 / 10; min-height: 0; }
-      
 
       .tour-wrapper { margin-top: 34px; }
-
       .booking-cta { padding: 62px 0; }
       .booking-copy h2 { font-size: 2.2rem; }
       .booking-actions, .booking-actions .btn { width: 100%; }
@@ -397,13 +320,10 @@
       .whatsapp-float { right: 16px; bottom: 16px; width: 52px; height: 52px; }
       .whatsapp-float svg { width: 28px; height: 28px; }
 
-      .lightbox { padding: 16px; }
-      .lightbox-content { height: 78vh; }
-      .lightbox-close { top: 0; right: 0; }
+      /* Esconde as setas de navegação no celular para um visual limpo com Swipe */
       .lightbox-nav { display: none !important; }
-      .lightbox-prev { left: 8px; }
-      .lightbox-next { right: 8px; }
-
+      .lightbox-close { top: 12px; right: 12px; width: 40px; height: 40px; font-size: 1.4rem; }
+      
       .tour-back-btn { bottom: 16px; left: 16px; padding: 8px 14px; font-size: .75rem; }
     }
   </style>
@@ -436,7 +356,7 @@
   </header>
 
   <main id="conteudo">
-    <!-- Hero com efeito de zoom suave na imagem e fade nas letras -->
+    <!-- Hero -->
     <section class="hero" id="inicio" aria-labelledby="hero-title">
       <div class="hero-bg" aria-hidden="true">
         <img src="assets/foto-capa.webp" alt="" fetchpriority="high" decoding="async">
@@ -472,34 +392,64 @@
       </div>
     </section>
 
-    <!-- Comodidades -->
+    <!-- Comodidades (Com atrações atualizadas) -->
     <section class="amenities fade-in" id="comodidades" aria-labelledby="amenities-title">
       <div class="container">
-        <div class="amenities-heading">
-          <span class="eyebrow">Para aproveitar</span>
-          <h2 id="amenities-title">Conforto para viver bons momentos</h2>
-          <p>Conheça alguns dos espaços e facilidades do Rancho Morro Grande.</p>
-        </div>
         <div class="amenities-grid">
-          <article class="amenity-item">
-            <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></svg>
-            <h3>Área gourmet</h3>
-            <p>Churrasqueira para reunir a família e os amigos.</p>
-          </article>
-          <article class="amenity-item">
-            <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" /></svg>
-            <h3>Lazer</h3>
-            <p>Piscina e área verde para relaxar e aproveitar.</p>
-          </article>
+          <!-- 1. Acomodações -->
           <article class="amenity-item">
             <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><path d="M9 22V12h6v10" /></svg>
             <h3>Acomodações</h3>
-            <p>Quartos para receber grupos e famílias.</p>
+            <p>Casa com suíte e lareira, acomodando confortavelmente até 40 pessoas.</p>
           </article>
+          
+          <!-- 2. Área Gourmet -->
+          <article class="amenity-item">
+            <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></svg>
+            <h3>Área Gourmet</h3>
+            <p>Estrutura completa com churrasqueira, forno de pizza e fogão a lenha.</p>
+          </article>
+
+          <!-- 3. Lazer & Pesca -->
+          <article class="amenity-item">
+            <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" /></svg>
+            <h3>Lazer & Pescaria</h3>
+            <p>Piscina refrescante e 3 tanques exclusivos para pescaria esportiva.</p>
+          </article>
+          
+          <!-- 4. Esportes & Jogos -->
+          <article class="amenity-item">
+            <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20"/></svg>
+            <h3>Esportes & Jogos</h3>
+            <p>Campo de futebol gramado, rede de vôlei e mesa de sinuca.</p>
+          </article>
+
+          <!-- 5. Aventura -->
+          <article class="amenity-item">
+            <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="M14.83 9.17l4.24-4.24"/><path d="m4.93 19.07 4.24-4.24"/></svg>
+            <h3>Aventura</h3>
+            <p>Tirolesa e rapel para garantir diversão e adrenalina nas alturas.</p>
+          </article>
+          
+          <!-- 6. Passeio a Cavalo -->
           <article class="amenity-item">
             <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /><path d="m9 12 2 2 4-4" /></svg>
-            <h3>Privacidade</h3>
-            <p>Um ambiente reservado para aproveitar com tranquilidade.</p>
+            <h3>Passeio a Cavalo</h3>
+            <p>Momentos inesquecíveis em contato direto com os animais e a natureza.</p>
+          </article>
+
+          <!-- 7. Quadriciclo -->
+          <article class="amenity-item">
+            <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L18 10l-2-4H8L6 10l-2.5 1.1C2.7 11.3 2 12.1 2 13v3c0 .6.4 1 1 1h2m0 0a2 2 0 1 0 4 0m-4 0h4m8 0a2 2 0 1 0 4 0m-4 0h4" /></svg>
+            <h3>Quadriciclo</h3>
+            <p>Trilhas e passeios emocionantes pelas áreas verdes do sítio.</p>
+          </article>
+
+          <!-- 8. Estrutura Completa -->
+          <article class="amenity-item">
+            <svg class="amenity-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z" /></svg>
+            <h3>Estrutura Completa</h3>
+            <p>Cozinha completa e ambiente reservado para sua família.</p>
           </article>
         </div>
       </div>
@@ -513,25 +463,29 @@
           <h2 id="gallery-title">Conheça o Rancho Morro Grande</h2>
           <p>Veja alguns detalhes do espaço e imagine seus próximos momentos por aqui.</p>
         </div>
+        
         <div class="gallery-grid" aria-label="Galeria de fotografias do Rancho Morro Grande">
-          <button class="gallery-item large" type="button" data-gallery-index="0" aria-label="Ampliar foto 1: área de lazer do Rancho Morro Grande">
+          <!-- LINHA 1 -->
+          <button class="gallery-item large" type="button" data-gallery-index="0" style="grid-column: 1 / 3; grid-row: 1 / 3;" aria-label="Ampliar foto 1">
             <img src="assets/foto-01.webp" alt="Visão da área de lazer da chácara em Santa Isabel" loading="lazy" decoding="async">
           </button>
-          <button class="gallery-item" type="button" data-gallery-index="1" aria-label="Ampliar foto 2: instalações do Rancho Morro Grande">
-            <img src="assets/foto-11.webp" alt="Detalhe da infraestrutura do Rancho Morro Grande" loading="lazy" decoding="async">
+          <button class="gallery-item" type="button" data-gallery-index="1" style="grid-column: 3; grid-row: 1;" aria-label="Ampliar foto 2">
+            <img src="assets/foto-11.webp" alt="Detalhe da infraestrutura" loading="lazy" decoding="async">
           </button>
-          <button class="gallery-item" type="button" data-gallery-index="2" aria-label="Ampliar foto 3: ambiente do Rancho Morro Grande">
-            <img src="assets/foto-07.webp" alt="Ambiente do Rancho Morro Grande para aproveitar os finais de semana" loading="lazy" decoding="async">
+          <!-- FOTO DO CAVALO COM CLASSE 'ajuste-cavalo' APLICADA -->
+          <button class="gallery-item" type="button" data-gallery-index="2" style="grid-column: 3; grid-row: 2;" aria-label="Ampliar foto 3">
+            <img src="assets/foto-07.webp" class="ajuste-cavalo" alt="Ambiente do rancho e passeio a cavalo" loading="lazy" decoding="async">
           </button>
-          <!-- NOVAS FOTOS ADICIONADAS -->
-          <button class="gallery-item" type="button" data-gallery-index="3" aria-label="Ampliar foto 4">
-            <img src="assets/foto-02.webp" alt="Natureza e espaços do Rancho Morro Grande" loading="lazy" decoding="async">
+
+          <!-- LINHA 2 -->
+          <button class="gallery-item" type="button" data-gallery-index="3" style="grid-column: 1; grid-row: 3;" aria-label="Ampliar foto 4">
+            <img src="assets/foto-02.webp" alt="Natureza" loading="lazy" decoding="async">
           </button>
-          <button class="gallery-item" type="button" data-gallery-index="4" aria-label="Ampliar foto 5">
-            <img src="assets/foto-03.webp" alt="Detalhes do Rancho Morro Grande" loading="lazy" decoding="async">
+          <button class="gallery-item" type="button" data-gallery-index="4" style="grid-column: 1; grid-row: 4;" aria-label="Ampliar foto 5">
+            <img src="assets/foto-03.webp" alt="Detalhes" loading="lazy" decoding="async">
           </button>
-          <button class="gallery-item" type="button" data-gallery-index="5" aria-label="Ampliar foto 6">
-            <img src="assets/foto-04.webp" alt="Área externa do Rancho Morro Grande" loading="lazy" decoding="async">
+          <button class="gallery-item large" type="button" data-gallery-index="5" style="grid-column: 2 / 4; grid-row: 3 / 5;" aria-label="Ampliar foto 6">
+            <img src="assets/foto-04.webp" alt="Área externa e tirolesa" loading="lazy" decoding="async">
           </button>
         </div>
 
@@ -611,7 +565,7 @@
           </details>
           <details class="faq-item">
             <summary>Quais comodidades o rancho oferece?</summary>
-            <p>O espaço conta com piscina, área verde, área gourmet com churrasqueira e acomodações. Entre em contato para confirmar os detalhes da estrutura para a sua estadia.</p>
+            <p>O espaço conta com piscina, área verde, churrasqueira, acomodações, passeio a cavalo, tirolesa, quadriciclo, campo de futebol e vôlei. Entre em contato para confirmar os detalhes.</p>
           </details>
           <details class="faq-item">
             <summary>Como consultar valores e disponibilidade?</summary>
@@ -636,26 +590,26 @@
   </footer>
 
   <!-- Botão Flutuante do WhatsApp -->
-  <a href="https://wa.me/5511956983277?text=Olá%2C%20gostaria%20de%20consultar%20datas%20e%20valores%20no%20Rancho%20Morro%20Grande!" target="_blank" rel="noopener noreferrer"
-     class="whatsapp-float"
-     aria-label="Falar pelo WhatsApp">
+  <a href="https://wa.me/5511956983277?text=Olá%2C%20gostaria%20de%20consultar%20datas%20e%20valores%20no%20Rancho%20Morro%20Grande!" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Falar pelo WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
   </a>
 
-  <!-- Lightbox da galeria -->
+  <!-- Lightbox da galeria TOTALMENTE REFEITO E SEM LIMITES DE TAMANHO -->
   <div class="lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Galeria de fotos ampliadas" aria-hidden="true">
     <div class="lightbox-content">
       <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Fechar galeria">&times;</button>
       <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Fotografia anterior">‹</button>
+      
       <div class="lightbox-image-wrap">
         <img class="lightbox-image" id="lightboxImage" src="" alt="">
       </div>
+      
       <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Próxima fotografia">›</button>
       <p class="lightbox-caption" id="lightboxCaption"></p>
     </div>
   </div>
 
-  <!-- Modal Tour 360 em Tela Cheia com Botão Voltar no Canto Inferior Esquerdo -->
+  <!-- Modal Tour 360 -->
   <div class="modal" id="tourModal">
     <div class="modal-content">
       <button class="tour-back-btn" id="closeTour" aria-label="Voltar para o site">
@@ -745,7 +699,6 @@
           modal.classList.add('open');
           document.body.classList.add('no-scroll');
 
-          // Ativa a tela cheia nativa do navegador
           if (modal.requestFullscreen) {
             modal.requestFullscreen().catch(err => console.log(err));
           } else if (modal.webkitRequestFullscreen) {
@@ -761,7 +714,6 @@
         document.body.classList.remove('no-scroll');
         container.innerHTML = ''; 
 
-        // Sai do modo de tela cheia nativo
         if (document.fullscreenElement) {
           document.exitFullscreen().catch(err => console.log(err));
         } else if (document.webkitFullscreenElement) {
@@ -769,6 +721,7 @@
         }
       });
 
+      // Lógica da Galeria e Lightbox
       const galleryButtons = Array.from(document.querySelectorAll('[data-gallery-index]'));
       const lightbox = document.getElementById('galleryLightbox');
       const lightboxImage = document.getElementById('lightboxImage');
@@ -813,9 +766,26 @@
       lightboxClose.addEventListener('click', closeLightbox);
       lightboxPrev.addEventListener('click', () => showGalleryImage(activeGalleryIndex - 1));
       lightboxNext.addEventListener('click', () => showGalleryImage(activeGalleryIndex + 1));
+      
       lightbox.addEventListener('click', (event) => {
-        if (event.target === lightbox) closeLightbox();
+        // Fecha se clicar fora da imagem
+        if (event.target === lightbox || event.target.classList.contains('lightbox-content') || event.target.classList.contains('lightbox-image-wrap')) {
+          closeLightbox();
+        }
       });
+
+      // Suporte a Swipe no celular
+      let touchStartX = 0;
+      let touchEndX = 0;
+      lightbox.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      lightbox.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchEndX < touchStartX - 50) showGalleryImage(activeGalleryIndex + 1); // Deslizou pra esquerda
+        if (touchEndX > touchStartX + 50) showGalleryImage(activeGalleryIndex - 1); // Deslizou pra direita
+      }, { passive: true });
 
       document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
