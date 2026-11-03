@@ -368,46 +368,6 @@
     });
   }
 
-  switchScene(scenes[0]);
-
-
-
-// ==========================================
-  // HELPER: Pegar coordenadas da câmera (yaw, pitch, fov)
-  // ==========================================
-  window.getview = function() {
-    var view = viewer.view();
-    if (view) {
-      var params = {
-        yaw: view.yaw(),
-        pitch: view.pitch(),
-        fov: view.fov()
-      };
-      console.log('%c--- COPIE O BLOCO ABAIXO ---', 'color: #00ff00; font-weight: bold;');
-      console.log('"targetViewParameters": ' + JSON.stringify(params, null, 2));
-      return params;
-    }
-  };
-
-  window.addEventListener('keydown', function(e) {
-    if (e.key === 'p' || e.key === 'P' || e.key === 'v' || e.key === 'V') {
-      window.getview();
-    }
-
-
-
-
-
-
-
-
-});
-
-
-
-
-
-
-
+  switchScene(scenes[1]);
 
 })();
